@@ -10,7 +10,7 @@ const cx = classnames.bind(styles);
 // For futher cumstomize
 const Header: React.FC = () => {
   return (
-    <header className={cx("header-container")}>
+    <header className={cx("header-container")} role="header">
       {QantasLogo && <Image className={cx("header-logo")} src={QantasLogo as StaticImageData} alt="company logo" />}
     </header>
   );

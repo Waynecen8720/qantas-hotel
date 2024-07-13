@@ -1,6 +1,8 @@
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import { ResultObj, getHotelsData } from '../utils/service';
+import { getHotelsData, sortDataByPrice } from '../utils/service';
+import { Sort } from '../utils/eumns';
+import mockData from '../../public/data.json';
 
 const mock = new MockAdapter(axios);
 
@@ -10,66 +12,41 @@ describe('test getHotelsData api', () => {
   });
 
   it('should fetch and return data when API call is successful', async () => {
-    const mockData: { results: ResultObj[] } = {
-      results: [
-        {
-          "id": "cxd650nuyo",
-          "property": {
-            "propertyId": "P107801",
-            "title": "Courtyard by Marriott Sydney-North Ryde",
-            "address": ["7-11 Talavera Rd","North Ryde"],
-            "previewImage": {
-              "url": "https://unsplash.it/145/125/?random",
-              "caption": "Image of Courtyard by Marriott Sydney-North Ryde",
-              "imageType": "PRIMARY"
-            },
-            "rating": {
-              "ratingValue": 4.5,
-              "ratingType": "self"
-            }
-          },
-          "offer": {
-            "promotion": {
-              "title": "Exclusive Deal",
-              "type": "MEMBER"
-            },
-            "name": "Deluxe Balcony Room",
-            "displayPrice": {
-              "amount": 329.000000000,
-              "currency": "AUD"
-            },
-            "savings": {
-              "amount": 30.000000000,
-              "currency": "AUD"
-            },
-            "cancellationOption": {
-              "cancellationType": "NOT_REFUNDABLE"
-            }
-          }
-        }
-      ],
-    };
-
     mock.onGet('/data.json').reply(200, mockData);
-
     const result = await getHotelsData();
-
     expect(result).toEqual(mockData.results);
   });
 
   it('should return an empty array when API call fails', async () => {
     mock.onGet('/data.json').reply(500);
-
     const result = await getHotelsData();
-
     expect(result).toEqual([]);
   });
 
   it('should return an empty array when API call returns non-200 status', async () => {
     mock.onGet('/data.json').reply(404);
-
     const result = await getHotelsData();
-
     expect(result).toEqual([]);
+  });
+});
+
+describe('sortDataByPrice', () => {
+  it('should return an empty array when data is empty', () => {
+    const result = sortDataByPrice([], Sort.asc);
+    expect(result).toEqual([]);
+  });
+
+  it('should sort data in ascending order', () => {
+    const result = sortDataByPrice(mockData.results, Sort.asc);
+    for (let i = 1; i < result.length; i++) {
+      expect(result[i].offer.displayPrice.amount).toBeGreaterThanOrEqual(result[i - 1].offer.displayPrice.amount);
+    }
+  });
+
+  it('should sort data in descending order', () => {
+    const result = sortDataByPrice(mockData.results, Sort.des);
+    for (let i = 1; i < result.length; i++) {
+      expect(result[i].offer.displayPrice.amount).toBeLessThanOrEqual(result[i - 1].offer.displayPrice.amount);
+    }
   });
 });

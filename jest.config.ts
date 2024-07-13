@@ -18,6 +18,7 @@ const config: Config = {
   moduleNameMapper: {
     '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
     '^@/Components(.*)$': '<rootDir>/src/Components$1',
+    '^@/UIComponents(.*)$': '<rootDir>/src/UIComponents$1',
     '^@/utils(.*)$': '<rootDir>/src/utils$1',
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
