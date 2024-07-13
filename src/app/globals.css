@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  font-family: "SF Pro Display", sans-serif, -apple-system, BlinkMacSystemFont,
+    segoe ui, pingfang sc, hiragino sans gb, microsoft yahei, helvetica neue,
+    Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji,
+    segoe ui symbol !important;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
