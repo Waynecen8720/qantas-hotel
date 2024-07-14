@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import Image, { ImageLoaderProps } from "next/image";
 import classnames from "classnames/bind";
 import { Rating } from "@/UIComponents";
 import { HotelData } from "@/utils/service";
@@ -14,6 +14,11 @@ interface HotelsInfoProps {
 }
 
 const HotelsInfo: React.FC<HotelsInfoProps> = ({ hotelsData }) => {
+  const imageLoader = ({ src, width, quality }: ImageLoaderProps): string => {
+    return `${src}?w=${width}&q=${quality || 75}`
+  }
+   
+
   return (
     <section className={cx('hotelsinfo-container')}  role="hotels-info">
       {hotelsData && hotelsData.length > 0 && hotelsData.map(hotel => (
@@ -23,6 +28,7 @@ const HotelsInfo: React.FC<HotelsInfoProps> = ({ hotelsData }) => {
         >
           <div className={cx('image-part')}>
             <Image
+              loader={imageLoader}
               width="160"
               height='128'
               src={hotel.property.previewImage.url}
