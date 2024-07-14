@@ -1,7 +1,8 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
+import mockData from '../../public/data.json';
 import Home from '../app/page';
-import { PriceSorter } from '../Components';
+import { PriceSorter, HotelsInfo } from '../Components';
 import { Sort } from '../utils/eumns';
 
 describe('Home', () => {
@@ -31,5 +32,27 @@ describe('PriceSorter Component', () => {
     fireEvent.change(selectElement, { target: { value: Sort.des } });
     
     expect(mockOnPriceSorterChange).toHaveBeenCalledWith(Sort.des);
+  });
+});
+
+describe('HotelsInfo', () => {
+  it('renders hotel information correctly', () => {
+    render(<HotelsInfo hotelsData={mockData.results} />);
+
+    expect(screen.getByRole('hotels-info')).toBeInTheDocument();
+
+    mockData.results.forEach(hotel => {
+      expect(screen.getByText(hotel.property.title)).toBeInTheDocument();
+      expect(screen.getByText(hotel.property.address.join(', '))).toBeInTheDocument();
+      expect(screen.getByAltText(hotel.property.previewImage.caption)).toBeInTheDocument();
+      if (hotel.offer.promotion) {
+        const promotionElements = screen.getAllByText(hotel.offer.promotion.title);
+        expect(promotionElements.length).toBeGreaterThan(0);
+        expect(promotionElements[0]).toBeInTheDocument();
+      }
+      if (hotel.offer.cancellationOption.cancellationType === 'Cancellation') {
+        expect(screen.getByText('Free cancellation')).toBeInTheDocument();
+      }
+    });
   });
 });

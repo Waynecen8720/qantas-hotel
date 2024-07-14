@@ -5,6 +5,7 @@ import classnames from "classnames/bind";
 import {
   Header,
   PriceSorter,
+  HotelsInfo,
 } from "@/Components";
 import { Sort, mockCity } from "@/utils/eumns";
 import { getHotelsData, sortDataByPrice, HotelData } from "@/utils/service";
@@ -30,7 +31,7 @@ export default function Home():JSX.Element {
   }, []);
 
   return (
-    <div className={cx('page-container')} role='main'>
+    <main className={cx('page-container')} role='main'>
       <Header />
       <section className={cx('info-section')}>
         <span>
@@ -43,6 +44,7 @@ export default function Home():JSX.Element {
           onPriceSorterChange={onPriceSorterChange}
         />
       </section>
-    </div>
+      <HotelsInfo hotelsData={hotelsData} />
+    </main>
   );
 }

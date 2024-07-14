@@ -1,6 +1,25 @@
 import axios, { AxiosResponse } from "axios";
 import { Sort } from "./eumns";
 
+export interface Offer {
+  promotion: {
+    title: string,
+    type: string,
+  },
+  name: string,
+  displayPrice: {
+    amount: number,
+    currency: string,
+  },
+  savings: {
+    amount: number,
+    currency: string,
+  },
+  cancellationOption: {
+    cancellationType: string
+  }
+}
+
 interface ResultObj {
   id: string,
   property: {
@@ -17,24 +36,7 @@ interface ResultObj {
       ratingType: string,
     }
   },
-  offer: {
-    promotion: {
-      title: string,
-      type: string,
-    },
-    name: string,
-    displayPrice: {
-      amount: number,
-      currency: string,
-    },
-    savings: {
-      amount: number,
-      currency: string,
-    },
-    cancellationOption: {
-      cancellationType: string
-    }
-  }
+  offer: Offer
 }
 
 export type HotelData = ResultObj[] | [];
