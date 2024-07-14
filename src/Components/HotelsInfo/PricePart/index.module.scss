@@ -1,0 +1,23 @@
+.price-part {
+  margin-top: -20px;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  .total {
+    margin-top: 4px;
+    .total-symbol {
+      font-size: 16px;
+      margin-right: 4px;
+      vertical-align: top;
+    }
+    .total-number {
+      font-size: 30px;
+      line-height: 1;
+    }
+  }
+  .save-text {
+    margin-top: 4px;
+    font-size: 16px;
+    color: rgb(198, 15, 15);
+  }
+}
