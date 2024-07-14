@@ -41,7 +41,7 @@ This project uses React Testing Library for unit testing.
 npm run test
 ```
 # Project Structure
-```
+```bash
 ├── src
 │   ├── __tests__
 │   │   ├── home.test.tsx          # Unit tests for the home page
