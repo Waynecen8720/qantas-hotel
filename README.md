@@ -14,7 +14,7 @@ This project is a hotel listing application for Qantas, built with Next.js and R
 	•	npm (>= 10.2.4)
 
 # Installation
-	1.	Clone the repository:
+  1.  Clone the repository:
   ```bash
     https://github.com/Waynecen8720/qantas-hotel.git
     cd qantas-hotels
@@ -104,7 +104,6 @@ TypeScript was chosen to add static typing to JavaScript, which helps catch erro
 Next.js was selected for its server-side rendering capabilities, which enhance performance and SEO.
 
 ## Acknowledgments
-
-	•	Next.js
-	•	React
-	•	React Testing Library
+•Next.js
+•React
+•React Testing Library
