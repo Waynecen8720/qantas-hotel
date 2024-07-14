@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import classnames from "classnames/bind";
+import { Rating } from "@/UIComponents";
 import { HotelData } from "@/utils/service";
 import { Cancellation } from '@/utils/eumns';
 import PricePart from './PricePart';
@@ -13,8 +14,6 @@ interface HotelsInfoProps {
 }
 
 const HotelsInfo: React.FC<HotelsInfoProps> = ({ hotelsData }) => {
-  console.log(hotelsData);
-  
   return (
     <section className={cx('hotelsinfo-container')}  role="hotels-info">
       {hotelsData && hotelsData.length > 0 && hotelsData.map(hotel => (
@@ -36,6 +35,7 @@ const HotelsInfo: React.FC<HotelsInfoProps> = ({ hotelsData }) => {
               <div className={cx('text-container')}>
                 <span title={hotel.property.title}>{hotel.property.title}</span>
               </div>
+              <Rating rate={hotel.property.rating} />
             </div>
             <span className={cx('address-text')}>{hotel.property.address.join(', ')}</span>
             <div className={cx('items')}>

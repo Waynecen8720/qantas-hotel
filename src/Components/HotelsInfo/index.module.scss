@@ -28,7 +28,10 @@
       padding-top: 16px;
       padding-bottom: 8px;
       .title-rating {
+        display: flex;
+        align-items: center;
         .text-container {
+          margin-right: 12px;
           max-width: 352px;
           overflow: hidden;
           white-space: nowrap;
