@@ -104,7 +104,6 @@ TypeScript was chosen to add static typing to JavaScript, which helps catch erro
 Next.js was selected for its server-side rendering capabilities, which enhance performance and SEO.
 
 ## Acknowledgments
-
-	•	Next.js
-	•	React
-	•	React Testing Library
+•Next.js
+•React
+•React Testing Library
