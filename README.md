@@ -1,6 +1,7 @@
 ## Overview
 
 This project is a hotel listing application for Qantas, built with Next.js and React. The app displays a list of hotels in Sydney with various deals, prices, and ratings.
+
 Demo Address: <https://qantas-hotel-one.vercel.app/>
 
 ## Features
