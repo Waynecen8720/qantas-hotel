@@ -30,6 +30,11 @@ This project is a hotel listing application for Qantas, built with Next.js and R
 npm run dev
 ```
 
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
 # Unit Tests
 
 This project uses React Testing Library for unit testing.
@@ -37,7 +42,7 @@ This project uses React Testing Library for unit testing.
 npm run test
 ```
 # Project Structure
-.
+```
 ├── src
 │   ├── __tests__
 │   │   ├── home.test.tsx          # Unit tests for the home page
@@ -81,11 +86,7 @@ npm run test
 ├── package.json
 ├── README.md
 └── tsconfig.json
-        
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```    
 
 ## Approach and Trade-offs
 1. Component-Based Architecture
