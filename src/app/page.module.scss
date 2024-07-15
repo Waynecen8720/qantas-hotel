@@ -7,3 +7,12 @@
     justify-content: space-between;
   }
 }
+
+@media only screen and (max-width: 680px) {
+  .page-container {
+    .info-section {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+}
