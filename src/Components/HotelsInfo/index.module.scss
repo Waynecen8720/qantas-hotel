@@ -21,6 +21,7 @@
     }
     .info-part {
       width: 100%;
+      min-width: 352px;
       display: flex;
       flex-direction: column;
       border-top: 1px solid #ccc;
@@ -32,6 +33,7 @@
         align-items: center;
         .text-container {
           margin-right: 12px;
+          width: 100%;
           max-width: 352px;
           overflow: hidden;
           white-space: nowrap;
@@ -58,6 +60,33 @@
             margin-top: 20px;
             color: rgb(3, 140, 3);
           }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 880px) {
+  .hotelsinfo-container {
+    .item-container {
+      .info-part {
+        .title-rating {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .hotelsinfo-container {
+    .item-container {
+      .info-part {
+        min-width: 180px;
+        .items {
+          flex-direction: column;
+          justify-content: flex-start
         }
       }
     }

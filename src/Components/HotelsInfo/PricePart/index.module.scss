@@ -21,3 +21,10 @@
     color: rgb(198, 15, 15);
   }
 }
+
+@media only screen and (max-width: 680px) {
+  .price-part {
+    margin-top: 8px;
+    text-align: left;
+  }
+}
